@@ -21,7 +21,7 @@ variable "containers" {
       update = optional(string)
     }))
   }))
-  default     = {}
+  default     = null
   description = <<-EOT
  - `container_access_type` - (Optional) The Access Level configured for this Container. Possible values are `Blob`, `Container` or `None`. Defaults to `None`.
  - `metadata` - (Optional) A mapping of MetaData for this Container. All metadata keys should be lowercase.
@@ -36,7 +36,7 @@ variable "containers" {
  - `read` - (Defaults to 5 minutes) Used when retrieving the Storage Container.
  - `update` - (Defaults to 30 minutes) Used when updating the Storage Container.
 EOT
-  nullable    = false
+  #nullable    = false
 }
 
 variable "immutability_policy" {

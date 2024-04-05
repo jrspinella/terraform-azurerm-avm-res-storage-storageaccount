@@ -114,7 +114,7 @@ variable "queues" {
       update = optional(string)
     }))
   }))
-  default     = {}
+  default     = null
   description = <<-EOT
  - `metadata` - (Optional) A mapping of MetaData which should be assigned to this Storage Queue.
  - `name` - (Required) The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
@@ -128,7 +128,7 @@ Supply role assignments in the same way as for `var.role_assignments`.
  - `read` - (Defaults to 5 minutes) Used when retrieving the Storage Queue.
  - `update` - (Defaults to 30 minutes) Used when updating the Storage Queue.
 EOT
-  nullable    = false
+  #nullable    = false
 }
 
 variable "wait_for_rbac_before_queue_operations" {

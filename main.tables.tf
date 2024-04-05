@@ -1,5 +1,5 @@
 resource "azurerm_storage_table" "this" {
-  for_each = var.tables != null ? var.tables : {}
+  for_each = var.tables
 
   name                 = each.value.name
   storage_account_name = azurerm_storage_account.this.name
