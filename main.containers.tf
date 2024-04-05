@@ -1,6 +1,6 @@
 # This uses azapi in order to avoid having to grant data plane permissions
 resource "azapi_resource" "containers" {
-  for_each = var.containers
+  for_each = toset(var.containers != null ? var.containers : {})
 
   type = "Microsoft.Storage/storageAccounts/blobServices/containers@2022-09-01"
   body = jsonencode({
