@@ -195,7 +195,7 @@ resource "azurerm_storage_account" "this" {
     }
   }
   dynamic "share_properties" {
-    for_each = var.share_properties == null ? [] : [var.share_properties]
+    for_each = var.share_properties == null ? [] : ["enabled"]
     content {
       dynamic "cors_rule" {
         for_each = share_properties.value.cors_rule == null ? [] : share_properties.value.cors_rule
@@ -208,13 +208,13 @@ resource "azurerm_storage_account" "this" {
         }
       }
       dynamic "retention_policy" {
-        for_each = share_properties.value.retention_policy == null ? [] : [share_properties.value.retention_policy]
+        for_each = share_properties.value.retention_policy == null ? [] : ["enabled"]
         content {
           days = retention_policy.value.days
         }
       }
       dynamic "smb" {
-        for_each = share_properties.value.smb == null ? [] : [share_properties.value.smb]
+        for_each = share_properties.value.smb == null ? [] : ["enabled"]
         content {
           authentication_types            = smb.value.authentication_types
           channel_encryption_type         = smb.value.channel_encryption_type
