@@ -114,7 +114,7 @@ variable "queues" {
       update = optional(string)
     }))
   }))
-  default     = null
+  default     = {}
   description = <<-EOT
  - `metadata` - (Optional) A mapping of MetaData which should be assigned to this Storage Queue.
  - `name` - (Required) The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
