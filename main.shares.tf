@@ -1,5 +1,5 @@
 resource "azurerm_storage_share" "this" {
-  for_each = toset(var.shares != null ? var.shares : {})
+  for_each = var.shares != null ? var.shares : {}
 
   name                 = each.value.name
   quota                = each.value.quota
